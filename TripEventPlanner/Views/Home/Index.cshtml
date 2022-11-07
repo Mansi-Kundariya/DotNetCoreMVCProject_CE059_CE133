@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="search">
+    <img src="~/images/Home-Banner.jpg" class="search__background-img" />
+
+    <input class="search__input" type="text" placeholder="Where to?" />
+</section>
+
+<section class="create-trip">
+    <img src="~/images/create-trip2.jpg" class="create-trip__background-img" />
+    <a asp-area="" asp-controller="Trips" asp-action="Create" class="create-trip__link">
+        <input class="create-trip__input" type="button" value="Plan your trip" />
+    </a>
+</section>
+
+<section class="menuTabs d-flex">
+    <a asp-action="Index" asp-controller="Activities">
+        <section class="menuTabs-attractions">
+            <i class="far fa-compass"></i>
+            <h2>Attractions</h2>
+        </section>
+    </a>
+    <a asp-action="Index" asp-controller="Activities">
+        <section class="menuTabs-events">
+            <i class="far fa-calendar-alt"></i>
+            <h2>Events</h2>
+        </section>
+    </a>
+    <a asp-action="Index" asp-controller="Activities">
+        <section class="menuTabs-restaurants">
+            <i class="fas fa-utensils"></i>
+            <h2>Restaurants</h2>
+        </section>
+    </a>
+
+    <a asp-action="Index" asp-controller="Trips">
+        <section class="menuTabs-trips">
+            <i class="far fa-map"></i>
+            <h2>My Trips</h2>
+        </section>
+    </a>
+</section>

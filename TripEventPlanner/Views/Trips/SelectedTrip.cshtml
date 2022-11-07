@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TripEventPlanner.Models.Trip>
+@{
+    ViewData["Title"] = "Index";
+}
+@foreach (var item in Model) {
+    <section>
+        @*<h1>My Trip</h1>*@
+        <h1>@Html.DisplayFor(modelItem => item.Name) </h1>
+        UserId: @Context.Session.GetInt32("id")
+        CountryId: @Context.Session.GetInt32("countryId")
+    </section>
+
+    <a asp-action="Index" asp-route-id="@Context.Session.GetInt32("id")">Go back</a>
+    <p>
+            <a asp-action="Create">Create Trip</a>
+        </p>
+
+
+    <section class="my-trip">
+
+        <section class="trip-location">
+            <section class="trip-location-imageUrl">
+
+                <figure>
+                    <img src="@Html.DisplayFor(modelItem => item.Country.ImageUrl)" alt="Alternate Text" class="" />
+                    <figcaption>@Html.DisplayFor(modelItem => item.Name)</figcaption>
+                </figure>
+                <p> @Html.DisplayFor(modelItem => item.StartDate) - @Html.DisplayFor(modelItem => item.EndDate)</p>
+            </section>
+        </section>
+    </section>
+}
+<section>
+    <h3>My Activities</h3>
+    <p>
+    </p>
+</section>
+@foreach (var item in Model) {
+    @foreach (var location in item.Country.Locations) {
+        <h4>@location.Name</h4>
+
+        <a asp-action="AddActivity" asp-route-locationName="@location.Name" asp-route-locationId="@location.LocationId">Add Activity</a>
+        @foreach (var locationItem in location.Activities) {
+            <section class="trip-activities">
+                <section class="trip-activity-imageUrl">
+                    <figure>
+                        <img src="@locationItem.ImageUrl" alt="@locationItem.Name" class="trip-image" />
+                    </figure>
+                </section>
+                <section class="trip-activity-info">
+                    <span class="info-span"><strong> Country: </strong>@item.Country.Name</span>
+                    <span class="info-span"><strong> Activitytype: </strong>@Html.DisplayFor(modelItem => locationItem.ActivityType.Name)</span>
+                    <span class="info-span"><strong> Activity Name: </strong>@locationItem.Name</span>
+                    <span class="info-span"><strong> Description: </strong>@locationItem.Description</span>
+                    <span class="info-span"><strong> Adress: </strong>@locationItem.Address</span>
+                    <span class="info-span"><strong> Price: </strong>@locationItem.Price</span>
+                    <span class="info-span"><strong> Date: </strong>@locationItem.StartDate - @locationItem.EndDate</span>
+                </section>
+            </section>
+        }
+
+    }
+}
+
+

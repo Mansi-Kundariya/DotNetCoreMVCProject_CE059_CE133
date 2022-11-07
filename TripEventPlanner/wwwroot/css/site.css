@@ -1,0 +1,585 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'KoHo', sans-serif;
+}
+
+    body .container {
+        max-width: 1400px;
+    }
+
+/* Nav ------------------------------------------------------------------------------------ */
+.navbar-nav {
+    justify-content: flex-end;
+}
+
+.nav-item {
+    align-items: center;
+    margin-left: 1em;
+    padding: 5px;
+    font-size: 1.1em;
+}
+
+    .nav-item:hover {
+        background-color: #F2F2F2;
+        border-radius: 25px;
+    }
+
+i {
+    font-size: 1.6em;
+}
+
+/* Login ------------------------------------------------------------------------------------ */
+.loginWrapper input[type=text],
+.loginWrapper input[type=password],
+.loginWrapper input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.loginWrapper:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-image: url("../images/backgroung.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+}
+
+.loginWrapper {
+    position: relative;
+    font-family: 'Inria Serif', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer {
+    justify-content: center;
+    max-width: 80vw;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 1em;
+}
+
+.login-title {
+    justify-content: center;
+    margin-bottom: 0.2rem;
+    font-size: 2em;
+    font-weight: 900;
+}
+
+.login, .register {
+    padding: 2em;
+}
+
+.register {
+    border-left: 2px red;
+}
+
+.required {
+    color: #ff0000;
+}
+
+.forgot-pwd {
+    float: right;
+    color: blue;
+    text-decoration: none;
+}
+
+    .forgot-pwd:hover, .forgot-pwd:active, .forgot-pwd:visited {
+        color: rgb(1, 1, 172);
+        text-decoration: none;
+    }
+
+    .forgot-pwd:hover {
+        text-decoration: underline;
+    }
+
+.loginWrapper legend {
+    font-size: 1.45em;
+    font-weight: 900;
+    padding: 1em;
+}
+
+.loginWrapper button {
+    border-radius: .25rem;
+    padding: .25rem 1rem;
+    text-transform: uppercase;
+    margin: 1rem;
+}
+
+/* Home page ------------------------------------------------------------------------------------ */
+
+.search {
+    width: 100%;
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.search__background-img {
+    width: 100%;
+    height: 325px;
+    object-fit: cover;
+}
+
+.search__input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    opacity: 0.9;
+    height: 75px;
+    width: 500px;
+    border: none;
+    padding: 15px;
+    transition: all 0.5s;
+    font-size: 1.5em;
+}
+
+    .search__input::placeholder {
+        color: black;
+        display: flex;
+        text-align: left;
+    }
+
+    .search__input:focus {
+        width: 600px;
+        transition: all 1s;
+    }
+
+.create-trip {
+    width: 100%;
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.create-trip__background-img {
+    width: 100%;
+    height: 325px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.create-trip__link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+}
+
+.create-trip__input {
+    background: white;
+    border: none;
+    border-radius: 20px;
+    height: 75px;
+    width: 200px;
+    opacity: 0.9;
+}
+
+    .create-trip__input:hover {
+        border: solid 2px #747474;
+    }
+
+.menuTabs {
+    justify-content: space-between;
+}
+
+    .menuTabs a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .menuTabs section {
+        border: 1px solid #cacaca;
+        padding: 2.5em;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .menuTabs section:hover {
+            background-color: #F2F2F2;
+        }
+
+    .menuTabs h2 {
+        font-size: 1.5em;
+    }
+/* Home page end ------------------------------------------------------------------------------------ */
+
+/* activity page ------------------------------------------------------------------------------------ */
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px
+}
+
+.form-container {
+    background: rgba(86, 204, 242, 0.38);
+    padding: 15px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 1400px;
+}
+
+.form__input {
+    margin-right: 5px;
+    color: black;
+    border: none;
+    padding: 5px 0 5px 30px;
+    border-radius: 5px;
+    width: 700px;
+    height: 40px;
+}
+
+.form__input-container {
+    position: relative;
+}
+
+.form__location {
+    padding: 5px 0 5px 30px;
+    border: none;
+    height: 40px;
+    width: 700px;
+    border-radius: 5px;
+}
+
+.form__activity {
+    display: flex;
+    margin: 5px auto;
+    width: 1400px;
+    border: none;
+    padding: 10px;
+    background: rgba(86, 204, 242, 0.38);
+    border-radius: 10px;
+}
+
+.form__actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+    .form__actions:after {
+        content: "";
+        width: 30px;
+        height: 30px;
+        background: url(/images/icons/Search_Icon.svg) no-repeat;
+        top: 50%;
+        right: 0;
+        position: absolute;
+        background-size: 30px 30px;
+        transform: translateX(-50%);
+    }
+
+.activity__button {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.activity {
+    margin-top: 25px;
+    display: grid;
+    grid-template-rows: 150px;
+    gap: 10px;
+}
+
+.activity__item {
+    display: grid;
+    grid-template-columns: 200px auto 100px;
+    grid-template-rows: auto;
+}
+
+.activity__img {
+    width: 200px;
+    height: 150px;
+}
+
+.activity__header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.activity-info {
+    margin-left: 10px;
+}
+
+.info {
+    display: block;
+}
+
+.activity__add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: auto;
+}
+
+/* activity page end ------------------------------------------------------------------------------------ */
+
+button:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.flex {
+    display: flex !important;
+}
+
+.flex-wrapper {
+    margin-right: 1em;
+    width: 500px
+}
+
+figure {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+    figure img {
+        width: 100%;
+        filter: brightness(50%);
+    }
+
+figcaption {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    color: white;
+    font-size: 2em;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* My Trip pag ------------------------------------------------------------------------------------ */
+.my-trip {
+    display: flex;
+}
+
+.trip-location {
+    display: flex !important;
+}
+
+.trip-location-imageUrl {
+    margin-right: 1em;
+    width: 500px
+}
+
+.trip-activity-imageUrl figure {
+    margin-right: 1em;
+    width: 200px
+}
+
+.activity-image {
+    width: 100%
+}
+
+.info-span {
+    display: block;
+}
+
+figure {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+    figure img {
+        width: 100%;
+        filter: brightness(50%);
+    }
+
+figcaption {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    color: white;
+    font-size: 2em;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.trip-activities {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.trip-activity-imageUrl {
+    width: 200px;
+    height: 150px;
+    margin-right: 20px;
+}
+
+.trip-activity-info {
+}
+
+/* My trip page end ------------------------------------------------------------------------------------ */
+
+/* My Trip pag ------------------------------------------------------------------------------------ */
+.my-trip {
+    display: flex;
+}
+
+.trip-location {
+    display: flex !important;
+}
+
+.trip-location-imageUrl {
+    margin-right: 1em;
+    width: 500px
+}
+
+.activity-image {
+    width: 200px;
+    height: 150px;
+}
+
+.info-span {
+    display: block;
+}
+
+figure {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+    figure img {
+        width: 100%;
+        filter: brightness(50%);
+    }
+
+figcaption {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    color: white;
+    font-size: 2em;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.trip-activities {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.trip-activity-imageUrl {
+    width: 200px;
+    height: 150px;
+    margin-right: 20px;
+}
+
+.trip-activity-info {
+}
+
+/* My trip page end ------------------------------------------------------------------------------------ */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TripEventPlanner.Models.Trip>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create">Create Trip</a>
+</p>
+
+<section class="my-trip">
+    @foreach (var item in Model)
+    {
+        <section class="trip-location">
+            <a asp-controller="trips" asp-action="SelectedTrip" asp-route-countryId="@item.CountryId">
+
+                <section class="trip-location-imageUrl">
+
+                    <figure>
+                        <img src="@Html.DisplayFor(modelItem => item.Country.ImageUrl)" alt="Alternate Text" class="" />
+                        <figcaption>@Html.DisplayFor(modelItem => item.Name)</figcaption>
+                    </figure>
+                    <p> @Html.DisplayFor(modelItem => item.StartDate) - @Html.DisplayFor(modelItem => item.EndDate)</p>
+                </section>
+            </a>
+        </section>
+    }
+</section>
+<section>
+    <h3>My Activities</h3>
+    <p>
+           <a asp-action="AddActivity">Add Activity</a>
+        </p>
+</section>
+@foreach (var item in Model)
+{
+    @foreach (var location in item.Country.Locations)
+    {
+
+        @foreach (var locationItem in location.Activities)
+        {
+            <section class="trip-activities">
+                <section class="trip-activity-imageUrl">
+                    <figure>
+                        <img src="@Html.DisplayFor(modelItem => locationItem.ImageUrl)" alt="@locationItem.Name" class="trip-image" />
+                    </figure>
+                </section>
+                <section class="trip-activity-info">
+                    <span class="info-span"><strong> Country: </strong>@item.Country.Name</span>
+                    <span class="info-span"><strong> Activitytype: </strong>@Html.DisplayFor(modelItem => locationItem.ActivityType.Name)</span>
+                    <span class="info-span"><strong> Activity Name: </strong>@locationItem.Name</span>
+                    <span class="info-span"><strong> Description: </strong>@locationItem.Description</span>
+                    <span class="info-span"><strong> Adress: </strong>@locationItem.Address</span>
+                    <span class="info-span"><strong> Price: </strong>@locationItem.Price</span>
+                    <span class="info-span"><strong> Date: </strong>@locationItem.StartDate.ToString() - @locationItem.EndDate.ToString()</span>
+                </section>
+            </section>
+        }
+
+    }
+}

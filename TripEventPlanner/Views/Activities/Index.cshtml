@@ -1,0 +1,135 @@
+﻿@model IEnumerable<TripEventPlanner.Models.Activity>
+@*@model TripEventPlanner.Models.Activity*@
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*UserId: @Context.Session.GetInt32("id")
+    CountryId: @Context.Session.GetInt32("countryId")
+    locationName: @Context.Session.GetString("locationName")
+    locationId: @Context.Session.GetInt32("locationId")*@
+
+@using (Html.BeginForm("Index", "Activities", FormMethod.Get))
+{
+    <form asp-action="Index" method="get">
+        <div class="form">
+
+            <article class="form-container">
+                <div class="form__input-container">
+                    <input placeholder="Insert Activity Name" class="form__input" type="text" name="SearchString"
+                           value="@ViewData["CurrentFilter"]" />
+
+                    <div class=" no-color">
+                        <button type="submit" value="" class="form__actions btn btn-default" />
+                    </div>
+                </div>
+
+                <select class="form__location" id="hej" name="location" value="@ViewData["location"]">
+                    @if (ViewData["location"] != null)
+                    {
+                        <option> @ViewData["location"] </option>
+                    }
+                    @if (@Context.Session.GetString("locationName") != null)
+                    {
+                        <option>  @Context.Session.GetString("locationName") </option>
+                    }
+                    <option>All</option>
+                    @foreach (var location in (IEnumerable<Location>)ViewData["locationFilter"])
+                    {
+                        @if (location.Name != Convert.ToString(ViewData["location"]) & location.Name != Context.Session.GetString("locationName"))
+                        {
+
+                            <option>@location.Name</option>
+                        }
+                    }
+                </select>
+            </article>
+        </div>
+        <select class="form__activity" name="activityType" value="@ViewData["activityType"]">
+            @if (ViewData["activityType"] != null)
+            {
+                <option> @ViewData["activityType"] </option>
+            }
+            <option>All</option>
+            @foreach (var type in (IEnumerable<ActivityType>)ViewData["activityTypeFilter"])
+            {
+                @if (type.Name != Convert.ToString(ViewData["activityType"]))
+                {
+                    <option>@type.Name</option>
+
+                }
+            }
+        </select>
+        @*<div class="form-actions no-color">
+                <input type="submit" value="Search" class="btn btn-default" /> |
+                <a asp-action="Index">Rest</a>
+            </div>*@
+        @foreach (var type in (IEnumerable<ActivityType>)ViewData["activityTypeFilter"])
+        {
+            <button type="submit" class="activity__button activity__button--@type.Name btn btn-default">@type.Name</button>
+        }
+    </form>
+}
+
+<section class="activity">
+    @*----------------------------- test data--------------------------------------------------  *@
+    <!--<form asp-action="Create2" method="post">
+        <input name="ActivityTypeId" type="hidden" class="form-control" value="1" />
+        <input name="LocationId" type="hidden" class="form-control" value="@Context.Session.GetInt32("locationId")" />
+        <article class="activity__item">
+            <img class="activity__img" src="/images/activity/rihannaconcert.jpg" />
+            <input name="ImageUrl" type="hidden" class="form-control" value="rihannaconcert.jpg" />
+            <div class="activity-info">
+                <h1 class="activity__header">0. test event</h1>
+                <input name="Name" type="hidden" class="form-control" value="test event" />
+                <span class="activity__address info">
+                    <b>Address:</b> vej123 arhus
+                    <input name="Address" type="hidden" class="form-control" value="vej123" />
+                </span>
+                <span class="activity__desc info">
+                    <b>Description:</b> adadad asdsadas das ad ad asda  asd asd ada sda a
+                    <input name="Description" type="hidden" class="form-control" value="adadad asdsadas das ad ad asda  asd asd ada sda a" />
+                </span>
+                <span class="activity__price info">
+
+                    <b>Price:</b>  100
+                </span>
+                <input name="Price" type="hidden" class="form-control" value="100" />
+                <span class="activity__type info">
+                    <b>Type:</b>  Event
+                </span>
+            </div>-->
+    @*<h3 class="activity__add">add event</h3>*@
+    <!--<input type="submit" value="Create" class="activity__add btn btn-primary" />
+        </article>
+    </form>-->
+    @*----------------------------- test data--------------------------------------------------  *@
+
+    @foreach (var item in Model.Select((value, i) => new { i = i + 1, value }))
+    {
+        <article class="activity__item">
+            <img class="activity__img" src="@item.value.ImageUrl" />
+            <div class="activity-info">
+                <h1 class="activity__header">@item.i. @item.value.Name</h1>
+                <span class="activity__address info">
+                    <b>Address:</b>@Html.DisplayFor(modelItem => item.value.Location.Name)
+                </span>
+                <span class="activity__desc info">
+                    <b>Description:</b> @item.value.Description
+                </span>
+                @if (item.value.Price != null)
+                {
+                    <span class="activity__price info">
+
+                        <b>Price:</b>  @item.value.Price
+                    </span>
+                }
+                <span class="activity__type info">
+                    <b>Type:</b>  @item.value.ActivityType.Name
+                </span>
+            </div>
+            <h3 class="activity__add">add event</h3>
+        </article>
+    }
+</section>

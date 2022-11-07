@@ -1,0 +1,48 @@
+﻿<Properties StartupConfiguration="{77482BEC-965A-4A41-B4CB-CA017586565D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TripEventPlanner/Views/Activities/Index.cshtml">
+    <Files>
+      <File FileName="TripEventPlanner/Views/Activities/Index.cshtml" Line="7" Column="6" IsPinned="True" />
+      <File FileName="TripEventPlanner/Controllers/ActivitiesController.cs" Line="45" Column="47" />
+      <File FileName="TripEventPlanner/Data/ItravelPlannerDBContext.cs" />
+      <File FileName="TripEventPlanner/Views/Trips/Index.cshtml" />
+      <File FileName="TripEventPlanner/Controllers/TripsController.cs" />
+      <File FileName="TripEventPlanner/Controllers/ActivityTypesController.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TripEventPlanner" expanded="True">
+            <Node name="TripEventPlanner" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Activities" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
+              <Node name="TripEventPlanner" expanded="True">
+                <Node name="css" expanded="True" />
+                <Node name="wwwroot" expanded="True">
+                  <Node name="lib" expanded="True">
+                    <Node name="bootstrap" expanded="True">
+                      <Node name="dist" expanded="True">
+                        <Node name="css" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.TripEventPlanner PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
